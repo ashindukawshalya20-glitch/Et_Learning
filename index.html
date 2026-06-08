@@ -53,7 +53,7 @@
 
         /* ප්‍රධාන බැනරය (Hero Section) */
         .hero {
-            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(43, 108, 176, 0.8)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(43, 108, 176, 0.85)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             height: 60vh;
@@ -86,13 +86,14 @@
             border-radius: 5px;
             font-weight: bold;
             transition: background 0.3s;
+            display: inline-block;
         }
 
         .btn:hover {
             background-color: #c53030;
         }
 
-        /* විෂය කොටස් (Subject Grid Section) */
+        /* පොදු කන්ටේනරය (Container) */
         .container {
             max-width: 1200px;
             margin: 50px auto;
@@ -117,6 +118,7 @@
             border-radius: 2px;
         }
 
+        /* විෂය කොටස් (Subject Grid Section) */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -138,7 +140,6 @@
 
         .card-img {
             height: 180px;
-            background-color: #cbd5e0;
             background-size: cover;
             background-position: center;
         }
@@ -162,6 +163,36 @@
             color: #4299e1;
             text-decoration: none;
             font-weight: bold;
+        }
+
+        /* වීඩියෝ කොටස (Video Section) */
+        .video-section {
+            background-color: #fff;
+            padding: 50px 0;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         /* ප්‍රශ්න පත්‍ර භාගත කිරීමේ කොටස (Downloads Section) */
@@ -199,6 +230,7 @@
             text-decoration: none;
             border-radius: 4px;
             font-size: 0.9rem;
+            transition: background 0.3s;
         }
 
         .download-btn:hover {
@@ -235,98 +267,99 @@
 </head>
 <body>
 
-    <!-- Header Navigation -->
     <header>
         <div class="logo">ET HUB</div>
         <nav>
             <a href="#home">මුල් පිටුව</a>
             <a href="#lessons">පාඩම් මාලා</a>
+            <a href="#videos">වීඩියෝ සටහන්</a>
             <a href="#papers">ප්‍රශ්න පත්‍ර</a>
-            <a href="#about">අප ගැන</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <h1>Advanced Level Engineering Technology</h1>
-        <p>අ.පො.ස. උසස් පෙළ ඉංජිනේරු තාක්ෂණවේදය හදාරන සිසුන් වෙනුවෙන් වෙන්වූ ශ්‍රී ලංකාවේ ප්‍රමුඛතම ඩිජිටල් අධ්‍යාපන අවකාශය.</p>
+        <p>අ.පො.ස. උසස්ළොව ඉංජිනේරු තාක්ෂණවේදය හදාරන සිසුන් වෙනුවෙන් වෙන්වූ ශ්‍රී ලංකාවේ ප්‍රමුඛතම ඩිජිටල් අධ්‍යාපන අවකාශය.</p>
         <a href="#lessons" class="btn">ඉගෙනුම ආරම්භ කරන්න</a>
     </section>
 
-    <!-- Lessons Categories -->
     <section class="container" id="lessons">
         <h2 class="section-title">ප්‍රධාන විෂය පථයන්</h2>
         <div class="grid">
             
-            <!-- Electronics Card -->
             <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1517055729445-fa7d27394b48?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="card-content">
                     <h3>Electronics & Electrical</h3>
                     <p>ට්‍රාන්සිස්ටර්, Op-Amps, තාර්කික ද්වාර (Logic Gates) සහ විදුලි පරිපථ ආශ්‍රිත සියලුම සිද්ධාන්ත සහ ගැටලු විසඳීම.</p>
-                    <a href="#" class="card-link">පාඩම් බලන්න &rarr;</a>
+                    <a href="#videos" class="card-link">පාඩම් බලන්න &rarr;</a>
                 </div>
             </div>
 
-            <!-- Civil Card -->
             <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="card-content">
                     <h3>Civil Engineering</h3>
                     <p>ගොඩනැගිලි ද්‍රව්‍ය, මැනුම් කටයුතු (Surveying), ව්‍යුහ විශ්ලේෂණය සහ නිවාස සැලසුම්කරණය පිළිබඳ මූලධර්ම.</p>
-                    <a href="#" class="card-link">පාඩම් බලන්න &rarr;</a>
+                    <a href="#videos" class="card-link">පාඩම් බලන්න &rarr;</a>
                 </div>
             </div>
 
-            <!-- Mechanical Card -->
             <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1537462715879-360eeb61a0bc?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="card-content">
                     <h3>Mechanical & Production</h3>
                     <p>යන්ත්‍ර සූත්‍ර ක්‍රියාකාරිත්වය, ද්‍රව විද්‍යාව (Hydraulics), සහ නිෂ්පාදන තාක්ෂණවේදයේ මූලික සිද්ධාන්ත.</p>
-                    <a href="#" class="card-link">පාඩම් බලන්න &rarr;</a>
+                    <a href="#videos" class="card-link">පාඩම් බලන්න &rarr;</a>
                 </div>
             </div>
 
-            <!-- Automotive Card -->
             <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=400&q=80');"></div>
                 <div class="card-content">
                     <h3>Automotive Engineering</h3>
                     <p>මෝටර් රථ එන්ජින් පද්ධති, සම්ප්‍රේෂණ පද්ධති සහ නූතන වාහනවල ඉලෙක්ට්‍රොනික තාක්ෂණය පිළිබඳ විග්‍රහය.</p>
-                    <a href="#" class="card-link">පාඩම් බලන්න &rarr;</a>
+                    <a href="#videos" class="card-link">පාඩම් බලන්න &rarr;</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Past Papers Section -->
+    <section class="video-section" id="videos">
+        <div class="container">
+            <h2 class="section-title">ප්‍රායෝගික පරීක්ෂණ සහ වීඩියෝ සටහන්</h2>
+            <div class="video-grid">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="downloads" id="papers">
         <div class="container">
             <h2 class="section-title">පසුගිය විභාග ප්‍රශ්න පත්‍ර (Past Papers)</h2>
             <ul class="paper-list">
                 <li class="paper-item">
                     <span>📄 2023 A/L Engineering Technology Paper</span>
-                    <a href="#" class="download-btn">Download PDF</a>
+                    <a href="https://drive.google.com" target="_blank" class="download-btn">Download PDF</a>
                 </li>
                 <li class="paper-item">
                     <span>📄 2022 A/L Engineering Technology Paper</span>
-                    <a href="#" class="download-btn">Download PDF</a>
+                    <a href="https://drive.google.com" target="_blank" class="download-btn">Download PDF</a>
                 </li>
                 <li class="paper-item">
                     <span>📄 2021 A/L Engineering Technology Paper</span>
-                    <a href="#" class="download-btn">Download PDF</a>
-                </li>
-                <li class="paper-item">
-                    <span>📄 2020 A/L Engineering Technology Paper</span>
-                    <a href="#" class="download-btn">Download PDF</a>
+                    <a href="https://drive.google.com" target="_blank" class="download-btn">Download PDF</a>
                 </li>
             </ul>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 ET Hub. All Rights Reserved. Designed for Technology Students.</p>
     </footer>
