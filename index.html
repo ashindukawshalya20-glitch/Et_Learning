@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ET Hub - Engineering Technology Educational Portal</title>
+    <style>
+        /* මූලික සැකසුම් (Global Styles) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ශීර්ෂකය (Header & Navigation) */
+        header {
+            background-color: #1a365d;
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #4299e1;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4299e1;
+        }
+
+        /* ප්‍රධාන බැනරය (Hero Section) */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(43, 108, 176, 0.8)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            background-color: #e53e3e;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #c53030;
+        }
+
+        /* විෂය කොටස් (Subject Grid Section) */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #1a365d;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #4299e1;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            height: 180px;
+            background-color: #cbd5e0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            margin-bottom: 10px;
+            color: #2b6cb0;
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .card-link {
+            color: #4299e1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* ප්‍රශ්න පත්‍ර භාගත කිරීමේ කොටස (Downloads Section) */
+        .downloads {
+            background-color: #edf2f7;
+            padding: 50px 0;
+        }
+
+        .paper-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .paper-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .paper-item:last-child {
+            border-bottom: none;
+        }
+
+        .download-btn {
+            background-color: #3182ce;
+            color: white;
+            padding: 6px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .download-btn:hover {
+            background-color: #2b6cb0;
+        }
+
+        /* පාදකය (Footer) */
+        footer {
+            background-color: #1a365d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design (ජංගම දුරකථන සඳහා සකස් කිරීම) */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav {
+                margin-top: 15px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">ET HUB</div>
+        <nav>
+            <a href="#home">මුල් පිටුව</a>
+            <a href="#lessons">පාඩම් මාලා</a>
+            <a href="#papers">ප්‍රශ්න පත්‍ර</a>
+            <a href="#about">අප ගැන</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Advanced Level Engineering Technology</h1>
+        <p>අ.පො.ස. උසස් පෙළ ඉංජිනේරු තාක්ෂණවේදය හදාරන සිසුන් වෙනුවෙන් වෙන්වූ ශ්‍රී ලංකාවේ ප්‍රමුඛතම ඩිජිටල් අධ්‍යාපන අවකාශය.</p>
+        <a href="#lessons" class="btn">ඉගෙනුම ආරම්භ කරන්න</a>
+    </section>
+
+    <!-- Lessons Categories -->
+    <section class="container" id="lessons">
+        <h2 class="section-title">ප්‍රධාන විෂය පථයන්</h2>
+        <div class="grid">
+            
+            <!-- Electronics Card -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1517055729445-fa7d27394b48?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="card-content">
+                    <h3>Electronics & Electrical</h3>
+                    <p>ට්‍රාන්සිස්ටර්, Op-Amps, තාර්කික ද්වාර (Logic Gates) සහ විදුලි පරිපථ ආශ්‍රිත සියලුම සිද්ධාන්ත සහ ගැටලු විසඳීම.</p>
+                    <a href="#" class="card-link">පාඩම් බලන්න &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Civil Card -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="card-content">
+                    <h3>Civil Engineering</h3>
+                    <p>ගොඩනැගිලි ද්‍රව්‍ය, මැනුම් කටයුතු (Surveying), ව්‍යුහ විශ්ලේෂණය සහ නිවාස සැලසුම්කරණය පිළිබඳ මූලධර්ම.</p>
+                    <a href="#" class="card-link">පාඩම් බලන්න &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Mechanical Card -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1537462715879-360eeb61a0bc?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="card-content">
+                    <h3>Mechanical & Production</h3>
+                    <p>යන්ත්‍ර සූත්‍ර ක්‍රියාකාරිත්වය, ද්‍රව විද්‍යාව (Hydraulics), සහ නිෂ්පාදන තාක්ෂණවේදයේ මූලික සිද්ධාන්ත.</p>
+                    <a href="#" class="card-link">පාඩම් බලන්න &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Automotive Card -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="card-content">
+                    <h3>Automotive Engineering</h3>
+                    <p>මෝටර් රථ එන්ජින් පද්ධති, සම්ප්‍රේෂණ පද්ධති සහ නූතන වාහනවල ඉලෙක්ට්‍රොනික තාක්ෂණය පිළිබඳ විග්‍රහය.</p>
+                    <a href="#" class="card-link">පාඩම් බලන්න &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Past Papers Section -->
+    <section class="downloads" id="papers">
+        <div class="container">
+            <h2 class="section-title">පසුගිය විභාග ප්‍රශ්න පත්‍ර (Past Papers)</h2>
+            <ul class="paper-list">
+                <li class="paper-item">
+                    <span>📄 2023 A/L Engineering Technology Paper</span>
+                    <a href="#" class="download-btn">Download PDF</a>
+                </li>
+                <li class="paper-item">
+                    <span>📄 2022 A/L Engineering Technology Paper</span>
+                    <a href="#" class="download-btn">Download PDF</a>
+                </li>
+                <li class="paper-item">
+                    <span>📄 2021 A/L Engineering Technology Paper</span>
+                    <a href="#" class="download-btn">Download PDF</a>
+                </li>
+                <li class="paper-item">
+                    <span>📄 2020 A/L Engineering Technology Paper</span>
+                    <a href="#" class="download-btn">Download PDF</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ET Hub. All Rights Reserved. Designed for Technology Students.</p>
+    </footer>
+
+</body>
+</html>
